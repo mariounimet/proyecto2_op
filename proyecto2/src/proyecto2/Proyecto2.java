@@ -11,6 +11,7 @@ package proyecto2;
 public class Proyecto2 {
 
     public static void main(String[] args) {
+
         AdminGOT admin = new AdminGOT(); 
         admin.newEpisode();
         admin.newEpisode();
