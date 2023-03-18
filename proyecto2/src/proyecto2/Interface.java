@@ -25,6 +25,12 @@ public class Interface extends javax.swing.JFrame {
         this.cola1Velma.setText(strings[4]);
         this.cola1Velma.setText(strings[5]);
     }
+    
+    public void updateCharacters(String[] characterG, String[] characterV){
+//        this.imgGOT.setIcon();
+//        
+//        this.imgVelma.setIcon();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,9 +48,9 @@ public class Interface extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        cola3GOT1 = new javax.swing.JLabel();
+        cola3BoostGOT = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        cola3Velma1 = new javax.swing.JLabel();
+        colaBoostVelma = new javax.swing.JLabel();
         cola1GOT = new javax.swing.JLabel();
         cola2GOT = new javax.swing.JLabel();
         cola3GOT = new javax.swing.JLabel();
@@ -52,6 +58,8 @@ public class Interface extends javax.swing.JFrame {
         cola2Velma = new javax.swing.JLabel();
         cola3Velma = new javax.swing.JLabel();
         fightPanel = new javax.swing.JPanel();
+        imgVelma = new javax.swing.JLabel();
+        imgGOT = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,9 +96,9 @@ public class Interface extends javax.swing.JFrame {
         jLabel10.setOpaque(true);
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 50, -1));
 
-        cola3GOT1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        cola3GOT1.setOpaque(true);
-        jPanel1.add(cola3GOT1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 400, 30));
+        cola3BoostGOT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cola3BoostGOT.setOpaque(true);
+        jPanel1.add(cola3BoostGOT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 400, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setText("boost");
@@ -98,9 +106,9 @@ public class Interface extends javax.swing.JFrame {
         jLabel8.setOpaque(true);
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 50, -1));
 
-        cola3Velma1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        cola3Velma1.setOpaque(true);
-        jPanel1.add(cola3Velma1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 390, 30));
+        colaBoostVelma.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        colaBoostVelma.setOpaque(true);
+        jPanel1.add(colaBoostVelma, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 390, 30));
 
         cola1GOT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cola1GOT.setOpaque(true);
@@ -128,6 +136,16 @@ public class Interface extends javax.swing.JFrame {
 
         fightPanel.setBackground(new java.awt.Color(204, 255, 255));
         fightPanel.setBorder(new javax.swing.border.MatteBorder(null));
+        fightPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        imgVelma.setBackground(new java.awt.Color(255, 255, 102));
+        imgVelma.setOpaque(true);
+        fightPanel.add(imgVelma, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 100, 110));
+
+        imgGOT.setBackground(new java.awt.Color(255, 255, 102));
+        imgGOT.setOpaque(true);
+        fightPanel.add(imgGOT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, 110));
+
         jPanel1.add(fightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 640, 160));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/rick-and-morty-wallpaper-1024x768-wallpaper.jpg"))); // NOI18N
@@ -178,11 +196,13 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel cola1Velma;
     private javax.swing.JLabel cola2GOT;
     private javax.swing.JLabel cola2Velma;
+    private javax.swing.JLabel cola3BoostGOT;
     private javax.swing.JLabel cola3GOT;
-    private javax.swing.JLabel cola3GOT1;
     private javax.swing.JLabel cola3Velma;
-    private javax.swing.JLabel cola3Velma1;
+    private javax.swing.JLabel colaBoostVelma;
     private javax.swing.JPanel fightPanel;
+    private javax.swing.JLabel imgGOT;
+    private javax.swing.JLabel imgVelma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

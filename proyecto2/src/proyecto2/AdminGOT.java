@@ -78,14 +78,12 @@ public class AdminGOT{
     }
     
     public Episode selectToFight(){
+        promoteEpisodes();
         if(p1.getSize() > 0){
-            promoteEpisodes();
             return p1.dequeue();
         }else if(p2.getSize() > 0){
-            promoteEpisodes();
             return p2.dequeue();
         }else if(p3.getSize() > 0){
-            promoteEpisodes();
             return p3.dequeue();
         }else{
             return null;
