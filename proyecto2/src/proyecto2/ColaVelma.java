@@ -31,7 +31,7 @@ public class ColaVelma {
             this.inicio = episodeo;
             this.fin = episodeo;
         } else {
-            this.fin.siguiente = episodeo;
+            this.fin.setSiguiente(episodeo);
             this.fin = episodeo;
         }
         this.lenght++;
@@ -44,7 +44,7 @@ public class ColaVelma {
                 inicio = null;
                 fin = null;
             } else {
-                inicio = inicio.siguiente;
+                inicio = inicio.getSiguiente();
             }
             this.lenght--;
             return episodeo;
