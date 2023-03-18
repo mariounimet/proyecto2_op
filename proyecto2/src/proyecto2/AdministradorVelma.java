@@ -57,5 +57,21 @@ public class AdministradorVelma {
             aux = aux.getSiguiente();
             contador++;
         }
+        contador = 0;
+        lenght = prio3.getlenght();
+        aux = prio3.getInicio();
+        
+        while(contador < lenght){
+            aux.AumentarContador();
+            if (aux.getContador() == 8){
+                aux = prio3.Extraer();
+                aux.ReiniciarContador();
+                prio2.Insertar(aux);
+            }else{
+                aux.AumentarContador();
+            }
+            aux = aux.getSiguiente();
+            contador++;
+        }
     }
 }
