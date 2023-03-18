@@ -15,14 +15,14 @@ public class Personaje {
     private int armas;
     private int velocidad;
     private int resistencia;
-    private int abilidad;
+    private int habilidad;
     private boolean taken;
     
-    public Personaje(String nombre, int fuerza, int inteligencia, int armas, int velocidad, int resistencia, int abilidad){
+    public Personaje(String nombre, int fuerza, int inteligencia, int armas, int velocidad, int resistencia, int habilidad){
         this.nombre = nombre;
         this.fuerza = fuerza;
         this.inteligencia = inteligencia;
-        this.abilidad = abilidad;
+        this.habilidad = habilidad;
         this.armas = armas;
         this.resistencia = resistencia;
         this.velocidad = velocidad;
@@ -44,8 +44,8 @@ public class Personaje {
     public int getInteligencia(){
         return this.inteligencia;
     }
-    public int getAbility(){
-        return this.abilidad;
+    public int getHability(){
+        return this.habilidad;
     }
     public int getArmas(){
         return this.armas;
