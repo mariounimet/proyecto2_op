@@ -9,47 +9,55 @@ package proyecto2;
  * @author Luis Domingos
  */
 public class ColaVelma {
-    private VelmaNodo inicio, fin;
+    private EpisodeoVelma inicio, fin;
+    private int lenght;
     
     public ColaVelma(){
-        inicio = null;
-        fin = null;
+        this.inicio = null;
+        this.fin = null;
+        this.lenght = 0;
     }
     
     public boolean estaVacio(){
-        if (inicio == null) {
+        if (this.lenght == 0) {
             return true;
         } else {
             return false;
         }
     }
     
-    public void Insertar(int nuevoEpisodeo){
-        VelmaNodo nuevo_nodo = new VelmaNodo();
-        nuevo_nodo.episodeo = nuevoEpisodeo;
-        nuevo_nodo.siguiente = null;
-        
+    public void Insertar(EpisodeoVelma episodeo){
         if (estaVacio()) {
-            inicio = nuevo_nodo;
-            fin = nuevo_nodo;
+            this.inicio = episodeo;
+            this.fin = episodeo;
         } else {
-            fin.siguiente = nuevo_nodo;
-            fin = nuevo_nodo;
+            this.fin.siguiente = episodeo;
+            this.fin = episodeo;
         }
+        this.lenght++;
     }
     
-    public int Extraer(){
+    public EpisodeoVelma Extraer(){
         if (!estaVacio()) {
-            int episodeo = inicio.episodeo;
+            EpisodeoVelma episodeo = this.inicio;
             if (inicio == fin) {
                 inicio = null;
                 fin = null;
             } else {
                 inicio = inicio.siguiente;
             }
+            this.lenght--;
             return episodeo;
-        } else {
-            return Integer.MAX_VALUE;
+        }else{
+            return null;
         }
+            
+    }
+    public int getlenght(){
+        return this.lenght;
+    }
+    public EpisodeoVelma getInicio(){
+        return this.inicio;
     }
 }
+

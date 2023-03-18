@@ -11,43 +11,71 @@ import java.util.Random;
  * @author Luis Domingos
  */
 public class EpisodeoVelma {
-    int contador;
-    int ID;
-    int duracion;
-    int calidad; //contador de cosas buenas
+    private int contador;
+    private int ID;
+    private int duracion;
+    private int calidad; //contador de cosas buenas
+    private EpisodeoVelma siguiente;
     
     public EpisodeoVelma(int NumeroEP){
-        ID = NumeroEP;
-        contador = 0;
-        calidad = 0;
+        this.siguiente = null;
+        this.ID = NumeroEP;
+        this.contador = 0;
+        this.calidad = 0;
         Random rand = new Random();
         int probabilidad;
         // intros de Velma
-        for(int i=0; i < 2; i++){
+        for(int i=0; i < 2; i++){   
             probabilidad = rand.nextInt(100)+1;
             if (probabilidad <= 75){
-                calidad++;
+                this.calidad++;
             }
         }
         // Inicios de Velma
         probabilidad = rand.nextInt(100)+1;
         if (probabilidad <= 84){
-            calidad++;
+            this.calidad++;
         }
         //Cierre de velma
         probabilidad = rand.nextInt(100)+1;
         if (probabilidad <= 84){
-            calidad++;
+            this.calidad++;
         }
         //Creditos de velma
         for(int i=0; i < 2; i++){
             probabilidad = rand.nextInt(100)+1;
             if (probabilidad <= 75){
-                calidad++;
+                this.calidad++;
             }
         }
-        // Como Velma consta de 6 componentes y 90/6=15, entonces por componente correcto se le sumara 15 min a la duración del episodeo
-        duracion = calidad*15;   
+        // Como Velma consta de 6 componentes se considerara un buen ep si consigue 5 componentes buenos, es decir que se colocara en la prio1
+        // Entonces se dividio 90/5 = 18, entonces por componente bueno se le sumara 18 min a la duración.
+        this.duracion = this.calidad*18;   
         
+    }
+    
+    public int getID(){
+        return this.ID;
+    }
+    public int getContador(){
+        return this.contador;
+    }
+    public void AumentarContador(){
+        this.contador++;
+    }
+    public void ReiniciarContador(){
+        this.contador = 0;
+    }
+    public int getCalidad(){
+        return this.calidad;
+    }
+    public int getDuracion(){
+        return this.duracion;
+    }
+    public EpisodeoVelma getSiguiente(){
+        return this.siguiente;
+    }
+    public void setSiguiente(EpisodeoVelma siguiente){
+        this.siguiente = siguiente;
     }
 }

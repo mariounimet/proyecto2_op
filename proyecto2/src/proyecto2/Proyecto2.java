@@ -14,21 +14,7 @@ public class Proyecto2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ColaVelma cola1 = new ColaVelma();
-        cola1.Insertar(12);
-        cola1.Insertar(1);
-        cola1.Insertar(2);
-        cola1.Insertar(1212);
-        int printear;
-        printear = cola1.Extraer();
-        System.out.println(printear);
-        printear = cola1.Extraer();
-        System.out.println(printear);
-        printear = cola1.Extraer();
-        System.out.println(printear);
-        printear = cola1.Extraer();
-        System.out.println(printear);
-        
+
         
         
     }
