@@ -90,32 +90,120 @@ public class InteligenciaArtificial {
             
             //pelear
             Thread.sleep(10000);
+            //PlotArmor de Morty
+            if(personajeGot.getAbility() == 1){
+                int mortyAbility = rand.nextInt(50)+1;
+                if(mortyAbility>=50){
+                    return 3; //Return 3 si got gana
+                }
+            }
+            if(personajeVelma.getAbility() == 1){
+                int mortyAbility = rand.nextInt(50)+1;
+                if(mortyAbility>=50){
+                    return 2; //Return 2 si velma gana
+                }
+            }
+            //Pelea por fuerza
             if(areaCombate == 1){
-                if(personajeVelma.getFuerza() > personajeGot.getFuerza()){
+                int fuerzaVelma = personajeVelma.getFuerza();
+                int fuerzaGot = personajeGot.getFuerza();
+                if(personajeGot.getAbility() == 2){ //Abilidad de Rick, si se activa crea un algo para duplicar su estadistica
+                    int rickAbility = rand.nextInt(50)+1;
+                    if(rickAbility>=50){
+                        fuerzaGot = fuerzaGot*2;
+                    } 
+                }
+                if(personajeVelma.getAbility() == 2){
+                    int rickAbility = rand.nextInt(50)+1;
+                    if(rickAbility>=50){
+                        fuerzaVelma = fuerzaVelma*2;
+                    }
+                }
+                if(fuerzaVelma > fuerzaGot){
                     return 2; //Return 2 si velma gana
                 }else{
                     return 3; //Return 3 si got gana
                 } 
+            //Pelea por Inteligencia
             }else if(areaCombate == 2){
-                if(personajeVelma.getInteligencia() > personajeGot.getInteligencia()){
+                int inteligenciaVelma = personajeVelma.getInteligencia();
+                int inteligenciaGot = personajeGot.getInteligencia();
+                if(personajeGot.getAbility() == 2){//Abilidad de Rick, si se activa crea un algo para duplicar su estadistica
+                    int rickAbility = rand.nextInt(50)+1;
+                    if(rickAbility>=50){
+                        inteligenciaGot = inteligenciaGot*2;
+                    } 
+                }
+                if(personajeVelma.getAbility() == 2){
+                    int rickAbility = rand.nextInt(50)+1;
+                    if(rickAbility>=50){
+                        inteligenciaVelma = inteligenciaVelma*2;
+                    }
+                }
+                if(inteligenciaVelma > inteligenciaGot){
                     return 2; //Return 2 si velma gana
                 }else{
                     return 3; //Return 3 si got gana
-                } 
+                }
+            //pelea por armas
             }else if(areaCombate == 3){
-                if(personajeVelma.getArmas() > personajeGot.getArmas()){
+                int armaVelma = personajeVelma.getArmas();
+                int armaGot = personajeGot.getArmas();
+                if(personajeGot.getAbility() == 2){//Abilidad de Rick, si se activa crea un algo para duplicar su estadistica
+                    int rickAbility = rand.nextInt(50)+1;
+                    if(rickAbility>=50){
+                        armaGot = armaGot*2;
+                    } 
+                }
+                if(personajeVelma.getAbility() == 2){
+                    int rickAbility = rand.nextInt(50)+1;
+                    if(rickAbility>=50){
+                        armaVelma = armaVelma*2;
+                    }
+                }
+                if(armaVelma > armaGot){
                     return 2; //Return 2 si velma gana
                 }else{
                     return 3; //Return 3 si got gana
                 }
+            //pelea por velocidad
             }else if(areaCombate == 4){
-                if(personajeVelma.getVelocidad() > personajeGot.getVelocidad()){
+                int velocidadVelma = personajeVelma.getVelocidad();
+                int velocidadGot = personajeGot.getVelocidad();
+                if(personajeGot.getAbility() == 2){//Abilidad de Rick, si se activa crea un algo para duplicar su estadistica
+                    int rickAbility = rand.nextInt(50)+1;
+                    if(rickAbility>=50){
+                        velocidadGot = velocidadGot*2;
+                    } 
+                }
+                if(personajeVelma.getAbility() == 2){
+                    int rickAbility = rand.nextInt(50)+1;
+                    if(rickAbility>=50){
+                        velocidadVelma = velocidadVelma*2;
+                    }
+                }
+                if(velocidadVelma > velocidadGot){
                     return 2; //Return 2 si velma gana
                 }else{
                     return 3; //Return 3 si got gana
                 }
+            //pelea por Resistencia
             }else{
-                if(personajeVelma.getResistencia() > personajeGot.getResistencia()){
+                int resistenciaVelma = personajeVelma.getResistencia();
+                int resistenciaGot = personajeGot.getResistencia();
+                if(personajeGot.getAbility() == 2){//Abilidad de Rick, si se activa crea un algo para duplicar su estadistica
+                    int rickAbility = rand.nextInt(50)+1;
+                    if(rickAbility>=50){
+                        resistenciaGot = resistenciaGot*2;
+                    } 
+                }
+                if(personajeVelma.getAbility() == 2){
+                    int rickAbility = rand.nextInt(50)+1;
+                    if(rickAbility>=50){
+                        resistenciaVelma = resistenciaVelma*2;
+                    }
+                }
+                if(resistenciaVelma > resistenciaGot){
                     return 2; //Return 2 si velma gana
                 }else{
                     return 3; //Return 3 si got gana
