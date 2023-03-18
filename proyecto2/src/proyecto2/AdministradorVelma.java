@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package proyecto2;
-
+import java.util.Random;
 /**
  *
  * @author Luis Domingos
@@ -14,6 +14,7 @@ public class AdministradorVelma {
     ColaVelma prio3 = new ColaVelma();
     ColaVelma refuerzo = new ColaVelma();
     private int epNum = 0;
+    private int contadorNuevo = 0;
     
     private void newEp(){
         this.epNum++;
@@ -29,6 +30,7 @@ public class AdministradorVelma {
         }
     }
     public EpisodeoVelma selecPelea(){
+        Random rand = new Random();
         EpisodeoVelma aux = null;
         if(prio1.getlenght() > 0){
             aux = prio1.Extraer();
@@ -38,7 +40,28 @@ public class AdministradorVelma {
             aux = prio3.Extraer();
         }
         promoteEpisodes();
+        this.contadorNuevo++;
+        if (this.contadorNuevo == 2){
+            newEp();
+            int probabilidad = rand.nextInt(100)+1;
+            if(probabilidad <= 70){
+                this.contadorNuevo = 0;
+            }
+            if (probabilidad <= 40){
+                sacarRefuerzo();
+            }
+        }
         return aux;
+    }
+    private void sacarRefuerzo(){
+        EpisodeoVelma ep = refuerzo.Extraer();
+        if (ep != null){
+            ep.refuerzoCalidad();
+            prio1.Insertar(ep);
+        }
+    }
+    private void Reforzar(EpisodeoVelma ep){
+        refuerzo.Insertar(ep);
     }
     private void promoteEpisodes(){
         int contador = 0;
