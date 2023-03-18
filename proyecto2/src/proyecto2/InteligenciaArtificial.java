@@ -106,7 +106,7 @@ public class InteligenciaArtificial {
             
             //pelear
             Thread.sleep(10000);
-            //PlotArmor de Morty
+            //PlotArmor de Morty, tiene un 50% de probilidad de ganar la batalla nada mas comenzar
             if(personajeGot.getAbility() == 1){
                 int mortyAbility = rand.nextInt(100)+1;
                 if(mortyAbility>=50){
