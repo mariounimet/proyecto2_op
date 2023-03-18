@@ -19,6 +19,9 @@ public class InteligenciaArtificial {
     private AdminGOT adminGot = new AdminGOT();
     private AdministradorVelma adminVelma = new AdministradorVelma();
     
+    private Episode epGot;
+    private EpisodeoVelma epVelma;
+    
     private Interface inter = new Interface();
     
     public InteligenciaArtificial(){
@@ -36,11 +39,9 @@ public class InteligenciaArtificial {
         
         inter.setVisible(true);
         
-        try {
-            int a = Pelea(new Episode(1, 70, 5), new EpisodeoVelma(2));
-            System.out.print(a);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(InteligenciaArtificial.class.getName()).log(Level.SEVERE, null, ex);
+        while(true){
+            this.adminGot.selectToFight();
+            this.adminVelma.selecPelea();
         }
     }
     
@@ -104,36 +105,32 @@ public class InteligenciaArtificial {
             }
             
             //pelear
-<<<<<<< HEAD
-            Thread.sleep(1000);
-=======
             Thread.sleep(10000);
             //PlotArmor de Morty
             if(personajeGot.getAbility() == 1){
-                int mortyAbility = rand.nextInt(50)+1;
+                int mortyAbility = rand.nextInt(100)+1;
                 if(mortyAbility>=50){
                     return 3; //Return 3 si got gana
                 }
             }
             if(personajeVelma.getAbility() == 1){
-                int mortyAbility = rand.nextInt(50)+1;
+                int mortyAbility = rand.nextInt(100)+1;
                 if(mortyAbility>=50){
                     return 2; //Return 2 si velma gana
                 }
             }
             //Pelea por fuerza
->>>>>>> luis
             if(areaCombate == 1){
                 int fuerzaVelma = personajeVelma.getFuerza();
                 int fuerzaGot = personajeGot.getFuerza();
                 if(personajeGot.getAbility() == 2){ //Abilidad de Rick, si se activa crea un algo para duplicar su estadistica
-                    int rickAbility = rand.nextInt(50)+1;
+                    int rickAbility = rand.nextInt(100)+1;
                     if(rickAbility>=50){
                         fuerzaGot = fuerzaGot*2;
                     } 
                 }
                 if(personajeVelma.getAbility() == 2){
-                    int rickAbility = rand.nextInt(50)+1;
+                    int rickAbility = rand.nextInt(100)+1;
                     if(rickAbility>=50){
                         fuerzaVelma = fuerzaVelma*2;
                     }
