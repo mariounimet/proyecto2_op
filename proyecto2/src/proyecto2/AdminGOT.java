@@ -17,6 +17,7 @@ public class AdminGOT{
     Queue pr = new Queue(3);
     
     private int currentId = 0;
+    private int cont = 0;
     
     public void printSizes(){
         p1.printAll();
@@ -78,6 +79,15 @@ public class AdminGOT{
     }
     
     public Episode selectToFight(){
+        if(cont == 2){
+            Random ran = new Random();
+            int probNew = ran.nextInt(100) + 1;
+            if(probNew <= 70){
+                newEpisode();
+            }
+            cont = 0;
+        }
+        cont++;
         promoteEpisodes();
         if(p1.getSize() > 0){
             return p1.dequeue();

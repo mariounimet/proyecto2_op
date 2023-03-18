@@ -5,15 +5,21 @@
 package proyecto2;
 
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Luis Domingos
  */
 public class InteligenciaArtificial {
-    private Personaje personajes[];
-    private Personaje protagonistas[];
+    private Personaje personajes[] = new Personaje[8];
+    private Personaje protagonistas[] = new Personaje[2];
     
+    private AdminGOT adminGot = new AdminGOT();
+    private AdministradorVelma adminVelma = new AdministradorVelma();
+    
+    private Interface inter = new Interface();
     
     public InteligenciaArtificial(){
         protagonistas[0] = new Personaje("Morty", 3, 3, 4, 5, 9, 1);
@@ -27,6 +33,15 @@ public class InteligenciaArtificial {
         personajes[5] = new Personaje("Mr.Poopybutthole", 7, 4, 3, 4, 4, 0);
         personajes[6] = new Personaje("Tammy", 6, 7, 5, 7, 1, 0);
         personajes[7] = new Personaje("Supernova", 9, 5, 10, 9, 5, 0);
+        
+        inter.setVisible(true);
+        
+        try {
+            int a = Pelea(new Episode(1, 70, 5), new EpisodeoVelma(2));
+            System.out.print(a);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(InteligenciaArtificial.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public int Pelea(Episode got, EpisodeoVelma velma) throws InterruptedException{
@@ -89,7 +104,7 @@ public class InteligenciaArtificial {
             }
             
             //pelear
-            Thread.sleep(10000);
+            Thread.sleep(1000);
             if(areaCombate == 1){
                 if(personajeVelma.getFuerza() > personajeGot.getFuerza()){
                     return 2; //Return 2 si velma gana
