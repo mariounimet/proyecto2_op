@@ -16,6 +16,15 @@ public class Interface extends javax.swing.JFrame {
     public Interface() {
         initComponents();
     }
+    
+    public void updateQueues(String[] strings){
+        this.cola1GOT.setText(strings[0]);
+        this.cola2GOT.setText(strings[1]);
+        this.cola3GOT.setText(strings[2]);
+        this.cola1Velma.setText(strings[3]);
+        this.cola1Velma.setText(strings[4]);
+        this.cola1Velma.setText(strings[5]);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,18 +35,105 @@ public class Interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        cola3GOT1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        cola3Velma1 = new javax.swing.JLabel();
+        cola1GOT = new javax.swing.JLabel();
+        cola2GOT = new javax.swing.JLabel();
+        cola3GOT = new javax.swing.JLabel();
+        cola1Velma = new javax.swing.JLabel();
+        cola2Velma = new javax.swing.JLabel();
+        cola3Velma = new javax.swing.JLabel();
+        fightPanel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setText("Velma");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel2.setText("GOT");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+
+        jLabel3.setText("Colas de prioridad");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("    3");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel5.setOpaque(true);
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 50, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("    2");
+        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel9.setOpaque(true);
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 50, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setText("    1");
+        jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel10.setOpaque(true);
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 50, -1));
+
+        cola3GOT1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cola3GOT1.setOpaque(true);
+        jPanel1.add(cola3GOT1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 400, 30));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setText("boost");
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel8.setOpaque(true);
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 50, -1));
+
+        cola3Velma1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cola3Velma1.setOpaque(true);
+        jPanel1.add(cola3Velma1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 390, 30));
+
+        cola1GOT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cola1GOT.setOpaque(true);
+        jPanel1.add(cola1GOT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 400, 30));
+
+        cola2GOT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cola2GOT.setOpaque(true);
+        jPanel1.add(cola2GOT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 400, 30));
+
+        cola3GOT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cola3GOT.setOpaque(true);
+        jPanel1.add(cola3GOT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 400, 30));
+
+        cola1Velma.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cola1Velma.setOpaque(true);
+        jPanel1.add(cola1Velma, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 390, 30));
+
+        cola2Velma.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cola2Velma.setOpaque(true);
+        jPanel1.add(cola2Velma, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 390, 30));
+
+        cola3Velma.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cola3Velma.setOpaque(true);
+        jPanel1.add(cola3Velma, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 390, 30));
+
+        fightPanel.setBackground(new java.awt.Color(204, 255, 255));
+        fightPanel.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel1.add(fightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 640, 160));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/rick-and-morty-wallpaper-1024x768-wallpaper.jpg"))); // NOI18N
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 420));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +174,23 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cola1GOT;
+    private javax.swing.JLabel cola1Velma;
+    private javax.swing.JLabel cola2GOT;
+    private javax.swing.JLabel cola2Velma;
+    private javax.swing.JLabel cola3GOT;
+    private javax.swing.JLabel cola3GOT1;
+    private javax.swing.JLabel cola3Velma;
+    private javax.swing.JLabel cola3Velma1;
+    private javax.swing.JPanel fightPanel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

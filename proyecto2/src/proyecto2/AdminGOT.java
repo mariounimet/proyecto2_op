@@ -30,18 +30,47 @@ public class AdminGOT{
     }
     
     public void newEpisode(){
-        Random random = new Random();
-        int duration = random.nextInt(91) + 30;
+
+        Random rand = new Random();
+        int probabilidad;
+        int calidad = 0;
+        int duracion;
+        // intros de got
+         
+        probabilidad = rand.nextInt(100)+1;
+        if (probabilidad <= 75){
+            calidad++;
+        }
         
-        if (duration > 90){
-            p1.add(new Episode(currentId, duration, 1));
-        }else if(duration < 60){
-            p3.add(new Episode(currentId, duration, 3));
+        // Inicios de got
+        probabilidad = rand.nextInt(100)+1;
+        if (probabilidad <= 84){
+            calidad++;
+        }
+        //Cierre de got
+        for(int i=0; i < 2; i++){    
+            probabilidad = rand.nextInt(100)+1;
+            if (probabilidad <= 84){
+                calidad++;
+            }
+        }
+        //Creditos de got
+
+        probabilidad = rand.nextInt(100)+1;
+        if (probabilidad <= 75){
+            calidad++;
+        }
+        
+        duracion = calidad*24;
+        
+        if (duracion > 90){
+            p1.add(new Episode(currentId, duracion, calidad));
+        }else if(duracion < 60){
+            p3.add(new Episode(currentId, duracion, calidad));
         }else{
-            p2.add(new Episode(currentId, duration, 2));
+            p2.add(new Episode(currentId, duracion, calidad));
         }
         currentId += 1;
-        printSizes();
     }
     
     public void toBooster(Episode ep){
