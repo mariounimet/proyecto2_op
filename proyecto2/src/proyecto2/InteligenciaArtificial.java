@@ -94,12 +94,16 @@ public class InteligenciaArtificial {
             if(personajeGot.getAbility() == 1){
                 int mortyAbility = rand.nextInt(50)+1;
                 if(mortyAbility>=50){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 3; //Return 3 si got gana
                 }
             }
             if(personajeVelma.getAbility() == 1){
                 int mortyAbility = rand.nextInt(50)+1;
                 if(mortyAbility>=50){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 2; //Return 2 si velma gana
                 }
             }
@@ -120,8 +124,12 @@ public class InteligenciaArtificial {
                     }
                 }
                 if(fuerzaVelma > fuerzaGot){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 2; //Return 2 si velma gana
                 }else{
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 3; //Return 3 si got gana
                 } 
             //Pelea por Inteligencia
@@ -141,8 +149,12 @@ public class InteligenciaArtificial {
                     }
                 }
                 if(inteligenciaVelma > inteligenciaGot){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 2; //Return 2 si velma gana
                 }else{
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 3; //Return 3 si got gana
                 }
             //pelea por armas
@@ -162,8 +174,12 @@ public class InteligenciaArtificial {
                     }
                 }
                 if(armaVelma > armaGot){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 2; //Return 2 si velma gana
                 }else{
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 3; //Return 3 si got gana
                 }
             //pelea por velocidad
@@ -183,8 +199,12 @@ public class InteligenciaArtificial {
                     }
                 }
                 if(velocidadVelma > velocidadGot){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 2; //Return 2 si velma gana
                 }else{
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 3; //Return 3 si got gana
                 }
             //pelea por Resistencia
@@ -204,8 +224,12 @@ public class InteligenciaArtificial {
                     }
                 }
                 if(resistenciaVelma > resistenciaGot){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 2; //Return 2 si velma gana
                 }else{
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 3; //Return 3 si got gana
                 }
             }

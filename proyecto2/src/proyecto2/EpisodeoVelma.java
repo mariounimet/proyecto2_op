@@ -69,6 +69,9 @@ public class EpisodeoVelma {
     public int getCalidad(){
         return this.calidad;
     }
+    public void refuerzoCalidad(){
+        this.calidad = 6;
+    }
     public int getDuracion(){
         return this.duracion;
     }
