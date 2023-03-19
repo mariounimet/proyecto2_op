@@ -40,8 +40,28 @@ public class InteligenciaArtificial {
         inter.setVisible(true);
         
         while(true){
-            this.adminGot.selectToFight();
-            this.adminVelma.selecPelea();
+            //pedir episodios
+            while(epGot == null && epVelma == null){
+                epGot = adminGot.selectToFight();
+                epVelma = adminVelma.selecPelea();
+                
+                String colaGot;
+                String colaVelma;
+            }
+            
+            //mostrar colas
+            
+            
+            //iniciar pelea
+            
+            
+            //actualizar interfaz de pelea
+            
+            
+            //procesar resultado
+            
+            
+            //guardar resultado
         }
     }
     
@@ -60,7 +80,7 @@ public class InteligenciaArtificial {
             int calidadGot = got.getCalidad();
             int calidadVelma = velma.getCalidad();
             //escogiendo personaje got
-            if(calidadGot <= 5) {
+            if(calidadGot >= 5) {
                 probPer = rand.nextInt(1);
                 if(this.protagonistas[probPer].isTaken() == true){
                     if(probPer == 1){
@@ -82,7 +102,7 @@ public class InteligenciaArtificial {
                 personajeGot = this.personajes[probPer];
             }
             //escogiendo personaje velma
-            if(calidadVelma <= 5) {
+            if(calidadVelma >= 5) {
                 probPer = rand.nextInt(1);
                 if(this.protagonistas[probPer].isTaken() == true){
                     if(probPer == 1){
@@ -105,9 +125,9 @@ public class InteligenciaArtificial {
             }
             
             //pelear
-            Thread.sleep(10000);
+            Thread.sleep(1000);
             //PlotArmor de Morty, tiene un 50% de probilidad de ganar la batalla nada mas comenzar
-            if(personajeGot.getAbility() == 1){
+            if(personajeGot.getAbility()== 1){
                 int mortyAbility = rand.nextInt(100)+1;
                 if(mortyAbility>=50){
                     return 3; //Return 3 si got gana
@@ -228,5 +248,3 @@ public class InteligenciaArtificial {
         }
     }
 }
-
-

@@ -79,15 +79,18 @@ public class AdminGOT{
     }
     
     public Episode selectToFight(){
-        if(cont == 2){
-            Random ran = new Random();
-            int probNew = ran.nextInt(100) + 1;
-            if(probNew <= 70){
+        Random ran = new Random();
+        int prob = ran.nextInt(100) + 1;
+        if(cont == 2){  
+            if(prob <= 70){
                 newEpisode();
             }
             cont = 0;
         }
         cont++;
+        if(prob <= 40 && pr.getSize() > 0){
+            p1.add(pr.dequeue());
+        }
         promoteEpisodes();
         if(p1.getSize() > 0){
             return p1.dequeue();

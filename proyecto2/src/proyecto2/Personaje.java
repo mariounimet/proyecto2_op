@@ -44,7 +44,7 @@ public class Personaje {
     public int getInteligencia(){
         return this.inteligencia;
     }
-    public int getHability(){
+    public int getAbility(){
         return this.habilidad;
     }
     public int getArmas(){
