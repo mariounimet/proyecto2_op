@@ -46,12 +46,14 @@ public class AdministradorVelma {
             if(probabilidad <= 70){
                 this.contadorNuevo = 0;
                 newEp();
+            }else{
+                this.contadorNuevo = 0;
             }
-        }
         if (probabilidad <= 40){
             sacarRefuerzo();
         }
-        return aux;
+        }
+            return aux;
     }
     private void sacarRefuerzo(){
         EpisodeoVelma ep = refuerzo.Extraer();

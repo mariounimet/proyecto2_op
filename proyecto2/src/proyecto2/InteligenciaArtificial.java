@@ -84,7 +84,6 @@ public class InteligenciaArtificial {
             try {
                 //iniciar pelea
                 result = Pelea(epGot, epVelma);
-                System.out.println("pelea terminada");
             } catch (InterruptedException ex) {
                 Logger.getLogger(InteligenciaArtificial.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -94,21 +93,17 @@ public class InteligenciaArtificial {
                 case 0:
                     adminGot.toBooster(epGot);
                     adminVelma.Reforzar(epVelma);
-                    System.out.println("reforzar");
                     break;
             //guardar resultado
                 case 1:
                     adminGot.p1.add(epGot);
                     adminVelma.prio1.Insertar(epVelma);
-                    System.out.println("empate");
                     break;
                 case 2:
                     lanzadosVelma += 1;
-                    System.out.println("lanzado velma");
                     break;
                 default:
                     lanzadosGot += 1;
-                    System.out.println("lanzado got");
                     break;
             }
             System.out.print(lanzadosGot+"-");

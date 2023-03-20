@@ -14,7 +14,7 @@ public class AdminGOT{
     Queue p1 = new Queue(1);
     Queue p2 = new Queue(2);
     Queue p3 = new Queue(3);
-    Queue pr = new Queue(3);
+    Queue pr = new Queue(4);
     
     private int currentId = 1;
     private int cont = 0;

@@ -47,6 +47,7 @@ public class ColaVelma {
                 inicio = inicio.getSiguiente();
             }
             this.lenght--;
+            episodeo.setSiguiente(null);
             return episodeo;
         }else{
             return null;
@@ -61,7 +62,7 @@ public class ColaVelma {
     }
     
     public String getItems(){
-        EpisodeoVelma aux = this.fin;
+        EpisodeoVelma aux = this.inicio;
         String st = "";
         while(aux != null){
             st += (String.valueOf(aux.getID())+"-");
