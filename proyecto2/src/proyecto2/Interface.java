@@ -21,15 +21,15 @@ public class Interface extends javax.swing.JFrame {
         this.cola1GOT.setText(strings[0]);
         this.cola2GOT.setText(strings[1]);
         this.cola3GOT.setText(strings[2]);
-        this.cola1Velma.setText(strings[3]);
+        this.cola3BoostGOT.setText(strings[3]);
         this.cola1Velma.setText(strings[4]);
-        this.cola1Velma.setText(strings[5]);
+        this.cola2Velma.setText(strings[5]);
+        this.cola3Velma.setText(strings[6]);
+        this.colaBoostVelma.setText(strings[7]);
     }
     
     public void updateCharacters(String[] characterG, String[] characterV){
-//        this.imgGOT.setIcon();
-//        
-//        this.imgVelma.setIcon();
+
     }
 
     /**

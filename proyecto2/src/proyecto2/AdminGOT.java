@@ -16,7 +16,7 @@ public class AdminGOT{
     Queue p3 = new Queue(3);
     Queue pr = new Queue(3);
     
-    private int currentId = 0;
+    private int currentId = 1;
     private int cont = 0;
     
     public void printSizes(){
@@ -62,7 +62,7 @@ public class AdminGOT{
             calidad++;
         }
         
-        duracion = calidad*24;
+        duracion = calidad*23;
         
         if (duracion > 90){
             p1.add(new Episode(currentId, duracion, calidad));
@@ -136,5 +136,16 @@ public class AdminGOT{
             aux = aux.getPrevius();
             cont++;
         }
+    }
+    
+    public String[] queues(){
+        String[] st = new String[4];
+        
+        st[0] = p1.getItems();
+        st[1] = p2.getItems();
+        st[2] = p3.getItems();
+        st[3] = pr.getItems();
+        
+        return st;
     }
 }

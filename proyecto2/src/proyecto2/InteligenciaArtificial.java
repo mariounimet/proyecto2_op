@@ -16,6 +16,9 @@ public class InteligenciaArtificial {
     private Personaje personajes[] = new Personaje[8];
     private Personaje protagonistas[] = new Personaje[2];
     
+    private int lanzadosGot = 0;
+    private int lanzadosVelma = 0;
+    
     private AdminGOT adminGot = new AdminGOT();
     private AdministradorVelma adminVelma = new AdministradorVelma();
     
@@ -38,31 +41,73 @@ public class InteligenciaArtificial {
         personajes[7] = new Personaje("Supernova", 9, 5, 10, 9, 5, 0);
         
         inter.setVisible(true);
+        adminGot.newEpisode();
+        adminVelma.newEp();
         
+        String[] cg = adminGot.queues();
+        String[] cv = adminVelma.queues();
+        String[] colas = {
+            cg[0],cg[1],cg[2],cg[3],cv[0],cv[1],cv[2],cv[3],
+        };
+
+        inter.updateQueues(colas);
+        
+    }
+    public void simulacion(){
         while(true){
+            updateColas();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(InteligenciaArtificial.class.getName()).log(Level.SEVERE, null, ex);
+            }
             //pedir episodios
             while(epGot == null && epVelma == null){
                 epGot = adminGot.selectToFight();
                 epVelma = adminVelma.selecPelea();
-                
-                String colaGot;
-                String colaVelma;
+//                System.out.println(epGot.getId());
+//                System.out.println(epVelma.getID());
             }
-            
+            updateColas();
+            int result = 1;
             //mostrar colas
-            
-            
-            //iniciar pelea
-            
-            
-            //actualizar interfaz de pelea
-            
-            
+            try {
+                //iniciar pelea
+                result = Pelea(epGot, epVelma);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(InteligenciaArtificial.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                //actualizar interfaz de pelea
             //procesar resultado
-            
-            
+            switch (result) {
+                case 0:
+                    adminGot.toBooster(epGot);
+                    adminVelma.Reforzar(epVelma);
+                    break;
             //guardar resultado
+                case 1:
+                    adminGot.p1.add(epGot);
+                    adminVelma.prio1.Insertar(epVelma);
+                    break;
+                case 2:
+                    lanzadosGot += 1;
+                    break;
+                default:
+                    lanzadosVelma += 1;
+                    break;
+            }
+            System.out.print(lanzadosGot+"-");
+            System.out.println(lanzadosVelma);
         }
+    }
+    public void updateColas(){
+        String[] cg = adminGot.queues();
+        String[] cv = adminVelma.queues();
+        String[] colas = {
+            cg[0],cg[1],cg[2],cg[3],cv[0],cv[1],cv[2],cv[3],
+        };
+
+        inter.updateQueues(colas);
     }
     
     public int Pelea(Episode got, EpisodeoVelma velma) throws InterruptedException{
@@ -130,12 +175,16 @@ public class InteligenciaArtificial {
             if(personajeGot.getAbility()== 1){
                 int mortyAbility = rand.nextInt(100)+1;
                 if(mortyAbility>=50){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 3; //Return 3 si got gana
                 }
             }
             if(personajeVelma.getAbility() == 1){
                 int mortyAbility = rand.nextInt(100)+1;
                 if(mortyAbility>=50){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 2; //Return 2 si velma gana
                 }
             }
@@ -156,8 +205,12 @@ public class InteligenciaArtificial {
                     }
                 }
                 if(fuerzaVelma > fuerzaGot){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 2; //Return 2 si velma gana
                 }else{
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 3; //Return 3 si got gana
                 } 
             //Pelea por Inteligencia
@@ -177,8 +230,12 @@ public class InteligenciaArtificial {
                     }
                 }
                 if(inteligenciaVelma > inteligenciaGot){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 2; //Return 2 si velma gana
                 }else{
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 3; //Return 3 si got gana
                 }
             //pelea por armas
@@ -198,8 +255,12 @@ public class InteligenciaArtificial {
                     }
                 }
                 if(armaVelma > armaGot){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 2; //Return 2 si velma gana
                 }else{
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 3; //Return 3 si got gana
                 }
             //pelea por velocidad
@@ -219,8 +280,12 @@ public class InteligenciaArtificial {
                     }
                 }
                 if(velocidadVelma > velocidadGot){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 2; //Return 2 si velma gana
                 }else{
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 3; //Return 3 si got gana
                 }
             //pelea por Resistencia
@@ -240,8 +305,12 @@ public class InteligenciaArtificial {
                     }
                 }
                 if(resistenciaVelma > resistenciaGot){
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 2; //Return 2 si velma gana
                 }else{
+                    personajeGot.restartTaken();
+                    personajeVelma.restartTaken();
                     return 3; //Return 3 si got gana
                 }
             }

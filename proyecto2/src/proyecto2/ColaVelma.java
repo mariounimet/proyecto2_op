@@ -59,5 +59,15 @@ public class ColaVelma {
     public EpisodeoVelma getInicio(){
         return this.inicio;
     }
+    
+    public String getItems(){
+        EpisodeoVelma aux = this.fin;
+        String st = "";
+        while(aux != null){
+            st += (String.valueOf(aux.getID())+"-");
+            aux = aux.getSiguiente();
+        }
+        return st;
+    }
 }
 

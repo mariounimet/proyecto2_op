@@ -63,6 +63,17 @@ public class Queue {
         return this.priority;
     }
     
+    public String getItems(){
+        Episode aux = this.first;
+        String st = "";
+        while(aux != null){
+            st += (String.valueOf(aux.getId())+"-");
+            aux = aux.getPrevius();
+        }
+        
+        return st;
+    }
+    
     public void printAll(){
         Episode aux = this.first;
         while(aux != null){
