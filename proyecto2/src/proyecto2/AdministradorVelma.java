@@ -41,15 +41,15 @@ public class AdministradorVelma {
         }
         promoteEpisodes();
         this.contadorNuevo++;
+        int probabilidad = rand.nextInt(100)+1;
         if (this.contadorNuevo == 2){
-            newEp();
-            int probabilidad = rand.nextInt(100)+1;
             if(probabilidad <= 70){
                 this.contadorNuevo = 0;
+                newEp();
             }
-            if (probabilidad <= 40){
-                sacarRefuerzo();
-            }
+        }
+        if (probabilidad <= 40){
+            sacarRefuerzo();
         }
         return aux;
     }

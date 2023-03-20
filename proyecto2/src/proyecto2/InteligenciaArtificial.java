@@ -55,25 +55,36 @@ public class InteligenciaArtificial {
     }
     public void simulacion(){
         while(true){
+            System.out.println("empieza");
+            epGot = null;
+            epVelma = null;
             updateColas();
+            System.out.println("update colas");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(InteligenciaArtificial.class.getName()).log(Level.SEVERE, null, ex);
             }
             //pedir episodios
-            while(epGot == null && epVelma == null){
+            while(epGot == null){
+                System.out.println("null de Got");
                 epGot = adminGot.selectToFight();
+                System.out.println(epGot);
+            }
+            while(epVelma == null){
+                System.out.println("Null de velma");
                 epVelma = adminVelma.selecPelea();
-//                System.out.println(epGot.getId());
-//                System.out.println(epVelma.getID());
+                System.out.println(epVelma);
+// 
             }
             updateColas();
+            System.out.println("update colas 2");
             int result = 1;
             //mostrar colas
             try {
                 //iniciar pelea
                 result = Pelea(epGot, epVelma);
+                System.out.println("pelea terminada");
             } catch (InterruptedException ex) {
                 Logger.getLogger(InteligenciaArtificial.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -83,21 +94,26 @@ public class InteligenciaArtificial {
                 case 0:
                     adminGot.toBooster(epGot);
                     adminVelma.Reforzar(epVelma);
+                    System.out.println("reforzar");
                     break;
             //guardar resultado
                 case 1:
                     adminGot.p1.add(epGot);
                     adminVelma.prio1.Insertar(epVelma);
+                    System.out.println("empate");
                     break;
                 case 2:
-                    lanzadosGot += 1;
+                    lanzadosVelma += 1;
+                    System.out.println("lanzado velma");
                     break;
                 default:
-                    lanzadosVelma += 1;
+                    lanzadosGot += 1;
+                    System.out.println("lanzado got");
                     break;
             }
             System.out.print(lanzadosGot+"-");
             System.out.println(lanzadosVelma);
+            System.out.println("\n");
         }
     }
     public void updateColas(){
