@@ -63,4 +63,7 @@ public class Episode {
     public void setPrevius(Episode ep){
         this.previus = ep;
     }
+    public void refuerzoCalidad(){
+        this.calidad = 5;
+    }
 }

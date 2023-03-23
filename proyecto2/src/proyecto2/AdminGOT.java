@@ -75,6 +75,7 @@ public class AdminGOT{
     }
     
     public void toBooster(Episode ep){
+        ep.refuerzoCalidad();
         pr.add(ep);
     }
     
