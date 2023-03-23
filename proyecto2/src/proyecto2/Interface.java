@@ -75,6 +75,15 @@ public class Interface extends javax.swing.JFrame {
                 break;
         }
     }
+        public void updateVisibleEmpate(boolean visible){
+            this.empate.setVisible(visible);
+        }
+        public void updateVisibleRefuerzo(boolean visible){
+            this.refuerzo.setVisible(visible);
+        }
+        public void updatePuntuacion(){
+            
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -115,6 +124,10 @@ public class Interface extends javax.swing.JFrame {
         GotId = new javax.swing.JLabel();
         VelmaId = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        refuerzo = new javax.swing.JLabel();
+        empate = new javax.swing.JLabel();
+        puntosGot = new javax.swing.JLabel();
+        puntosVelma = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -234,6 +247,18 @@ public class Interface extends javax.swing.JFrame {
         jLabel12.setText("id");
         fightPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, -1));
 
+        refuerzo.setText("Refuerzo");
+        fightPanel.add(refuerzo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
+
+        empate.setText("Empate");
+        fightPanel.add(empate, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
+
+        puntosGot.setText("0");
+        fightPanel.add(puntosGot, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 40, -1));
+
+        puntosVelma.setText("0");
+        fightPanel.add(puntosVelma, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 50, -1));
+
         jPanel1.add(fightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 640, 160));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/rick-and-morty-wallpaper-1024x768-wallpaper.jpg"))); // NOI18N
@@ -292,6 +317,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel cola3GOT;
     private javax.swing.JLabel cola3Velma;
     private javax.swing.JLabel colaBoostVelma;
+    private javax.swing.JLabel empate;
     private javax.swing.JPanel fightPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -308,6 +334,9 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel perGOT;
     private javax.swing.JLabel perVelma;
+    private javax.swing.JLabel puntosGot;
+    private javax.swing.JLabel puntosVelma;
+    private javax.swing.JLabel refuerzo;
     private javax.swing.JLabel stat;
     private javax.swing.JLabel winnerGot;
     private javax.swing.JLabel winnerVelma;

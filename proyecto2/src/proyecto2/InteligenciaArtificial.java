@@ -64,6 +64,8 @@ public class InteligenciaArtificial {
                 inter.updateCharacters("", "");
                 inter.updateCharStat(0, 0);
                 inter.updateStats(0);
+                inter.updateVisibleEmpate(false);
+                inter.updateVisibleRefuerzo(false);
             } catch (InterruptedException ex) {
                 Logger.getLogger(InteligenciaArtificial.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -82,11 +84,7 @@ public class InteligenciaArtificial {
                 //iniciar pelea
                 inter.updateId(epGot.getId(), epVelma.getID());
                 result = Pelea(epGot, epVelma);
-                if(result == 2){
-                    inter.winnerVisibleVelma();
-                }else if(result == 3){
-                    inter.winnerVisibleGot();
-                }
+                
             } catch (InterruptedException ex) {
                 Logger.getLogger(InteligenciaArtificial.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -96,17 +94,21 @@ public class InteligenciaArtificial {
                 case 0:
                     adminGot.toBooster(epGot);
                     adminVelma.Reforzar(epVelma);
+                    inter.updateVisibleRefuerzo(true);
                     break;
             //guardar resultado
                 case 1:
                     adminGot.p1.add(epGot);
                     adminVelma.prio1.Insertar(epVelma);
+                    inter.updateVisibleEmpate(true);
                     break;
                 case 2:
                     lanzadosVelma += 1;
+                    inter.winnerVisibleVelma();
                     break;
                 default:
                     lanzadosGot += 1;
+                    inter.winnerVisibleGot();
                     break;
             }
         }
