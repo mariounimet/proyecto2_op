@@ -73,8 +73,6 @@ public class Queue {
             st += (String.valueOf(aux.getId())+"-");
             aux = aux.getPrevius();
         }
-        System.out.println("rec"+ this.priority);
-        
         return st;
     }
     

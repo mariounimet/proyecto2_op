@@ -11,7 +11,7 @@ package proyecto2;
 public class Proyecto2 {
 
     public static void main(String[] args) {
-        InteligenciaArtificial ia = new InteligenciaArtificial();
+        InteligenciaArtificial ia = new InteligenciaArtificial(1000);
         ia.simulacion();
     }    
 }
