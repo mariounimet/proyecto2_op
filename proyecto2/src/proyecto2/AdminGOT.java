@@ -108,7 +108,7 @@ public class AdminGOT{
         int size = p2.getSize();
         Episode aux = p2.getFirst();
         
-        while(cont < size){
+        while(cont < size && aux != null){
             
             aux.continueWaiting();
             if(aux.getWaiting() == 8){
@@ -124,7 +124,7 @@ public class AdminGOT{
         size = p3.getSize();
         aux = p3.getFirst();
         
-        while(cont < size){
+        while(cont < size && aux != null){
             
             aux.continueWaiting();
             if(aux.getWaiting() == 8){
