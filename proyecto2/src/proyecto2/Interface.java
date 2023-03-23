@@ -34,6 +34,13 @@ public class Interface extends javax.swing.JFrame {
         this.perGOT.setText(characterG);
         this.perVelma.setText(characterV);
     }
+    public void updateAbilityVelma(String ability){
+        this.AbilityVelma.setText(ability);
+    }
+    public void updateAbilityGot(String ability){
+        this.AbilityGot.setText(ability);
+    }
+         
     public void winnerVisibleGot(){
         this.winnerGot.setVisible(true);
         this.winnerVelma.setVisible(false);
@@ -81,7 +88,9 @@ public class Interface extends javax.swing.JFrame {
         public void updateVisibleRefuerzo(boolean visible){
             this.refuerzo.setVisible(visible);
         }
-        public void updatePuntuacion(){
+        public void updatePuntuacion(int velma, int got){
+            this.puntosVelma.setText(String.valueOf(velma));
+            this.puntosGot.setText(String.valueOf(got));
             
         }
 
@@ -128,6 +137,8 @@ public class Interface extends javax.swing.JFrame {
         empate = new javax.swing.JLabel();
         puntosGot = new javax.swing.JLabel();
         puntosVelma = new javax.swing.JLabel();
+        AbilityVelma = new javax.swing.JLabel();
+        AbilityGot = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -259,6 +270,12 @@ public class Interface extends javax.swing.JFrame {
         puntosVelma.setText("0");
         fightPanel.add(puntosVelma, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 50, -1));
 
+        AbilityVelma.setText("AbilityVelma");
+        fightPanel.add(AbilityVelma, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 70, 20));
+
+        AbilityGot.setText("AbilityGot");
+        fightPanel.add(AbilityGot, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+
         jPanel1.add(fightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 640, 160));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/rick-and-morty-wallpaper-1024x768-wallpaper.jpg"))); // NOI18N
@@ -305,6 +322,8 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AbilityGot;
+    private javax.swing.JLabel AbilityVelma;
     private javax.swing.JLabel GotId;
     private javax.swing.JLabel GotStat;
     private javax.swing.JLabel VelmaId;

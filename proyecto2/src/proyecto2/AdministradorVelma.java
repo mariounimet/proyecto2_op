@@ -40,8 +40,13 @@ public class AdministradorVelma {
             aux = prio3.Extraer();
         }
         promoteEpisodes();
+        
         this.contadorNuevo++;
         int probabilidad = rand.nextInt(100)+1;
+        if (probabilidad <= 40){
+            sacarRefuerzo();
+        }
+        
         if (this.contadorNuevo == 2){
             if(probabilidad <= 70){
                 this.contadorNuevo = 0;
@@ -49,9 +54,6 @@ public class AdministradorVelma {
             }else{
                 this.contadorNuevo = 0;
             }
-        if (probabilidad <= 40){
-            sacarRefuerzo();
-        }
         }
             return aux;
     }

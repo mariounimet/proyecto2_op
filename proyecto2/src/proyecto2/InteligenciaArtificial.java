@@ -4,6 +4,7 @@
  */
 package proyecto2;
 
+
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,13 +25,15 @@ public class InteligenciaArtificial {
     
     private Episode epGot;
     private EpisodeoVelma epVelma;
-    
+    String[] arg;
     private Interface inter = new Interface();
+    private EscribirArchivo es = new EscribirArchivo();
+    int tiempo;
     
-    public InteligenciaArtificial(){
+    public InteligenciaArtificial(int tiempo){
         protagonistas[0] = new Personaje("Morty", 3, 3, 4, 5, 9, 1);
         protagonistas[1] = new Personaje("Rick", 8, 10, 9, 8, 8, 2);
-        
+        this.tiempo = tiempo;
         personajes[0] = new Personaje("BirdPerson", 10, 6, 8, 10, 7, 0);
         personajes[1] = new Personaje("Jerry", 1, 1, 1, 1, 2, 0);
         personajes[2] = new Personaje("EvilMorty", 4, 9, 7, 6, 10, 0);
@@ -49,7 +52,7 @@ public class InteligenciaArtificial {
         String[] colas = {
             cg[0],cg[1],cg[2],cg[3],cv[0],cv[1],cv[2],cv[3],
         };
-
+        
         inter.updateQueues(colas);
         
     }
@@ -59,9 +62,11 @@ public class InteligenciaArtificial {
             epVelma = null;
             updateColas();
             try {
-                Thread.sleep(1000);
+                Thread.sleep(this.tiempo/3);
                 inter.resetWinner();
                 inter.updateCharacters("", "");
+                inter.updateAbilityGot("");
+                inter.updateAbilityVelma("");
                 inter.updateCharStat(0, 0);
                 inter.updateStats(0);
                 inter.updateVisibleEmpate(false);
@@ -104,11 +109,15 @@ public class InteligenciaArtificial {
                     break;
                 case 2:
                     lanzadosVelma += 1;
+                    this.es.Escribir(epVelma, null);
                     inter.winnerVisibleVelma();
+                    inter.updatePuntuacion(lanzadosVelma, lanzadosGot);
                     break;
                 default:
                     lanzadosGot += 1;
+                    this.es.Escribir(null, epGot);
                     inter.winnerVisibleGot();
+                    inter.updatePuntuacion(lanzadosVelma, lanzadosGot);
                     break;
             }
         }
@@ -124,7 +133,6 @@ public class InteligenciaArtificial {
     }
     
     public int Pelea(Episode got, EpisodeoVelma velma) throws InterruptedException{
-        
         Random rand = new Random();
         int probabilidad = rand.nextInt(100)+1;
         int probPer;
@@ -185,13 +193,14 @@ public class InteligenciaArtificial {
             inter.updateCharacters(personajeGot.getNombre(), personajeVelma.getNombre());
             
             //pelear
-            Thread.sleep(1000);
+            Thread.sleep(this.tiempo);
             //PlotArmor de Morty, tiene un 50% de probilidad de ganar la batalla nada mas comenzar
             if(personajeGot.getAbility()== 1){
                 int mortyAbility = rand.nextInt(100)+1;
                 if(mortyAbility>=70){
                     personajeGot.restartTaken();
                     personajeVelma.restartTaken();
+                    inter.updateAbilityGot("Plot Armor");
                     return 3; //Return 3 si got gana
                 }
             }
@@ -200,6 +209,7 @@ public class InteligenciaArtificial {
                 if(mortyAbility>=70){
                     personajeGot.restartTaken();
                     personajeVelma.restartTaken();
+                    inter.updateAbilityVelma("Plot Armor");
                     return 2; //Return 2 si velma gana
                 }
             }
@@ -210,14 +220,16 @@ public class InteligenciaArtificial {
                 int fuerzaGot = personajeGot.getFuerza();
                 if(personajeGot.getAbility() == 2){ //Abilidad de Rick, si se activa crea un algo para duplicar su estadistica
                     int rickAbility = rand.nextInt(100)+1;
-                    if(rickAbility>=70){
+                    if(rickAbility<=100){
                         fuerzaGot = fuerzaGot*2;
+                        inter.updateAbilityGot("Rick boost");
                     } 
                 }
                 if(personajeVelma.getAbility() == 2){
                     int rickAbility = rand.nextInt(100)+1;
-                    if(rickAbility>=70){
+                    if(rickAbility<=70){
                         fuerzaVelma = fuerzaVelma*2;
+                        inter.updateAbilityVelma("Rick boost");
                     }
                 }
                 inter.updateCharStat(fuerzaGot, fuerzaVelma);
@@ -236,15 +248,17 @@ public class InteligenciaArtificial {
                 int inteligenciaVelma = personajeVelma.getInteligencia();
                 int inteligenciaGot = personajeGot.getInteligencia();
                 if(personajeGot.getAbility() == 2){//Abilidad de Rick, si se activa crea un algo para duplicar su estadistica
-                    int rickAbility = rand.nextInt(50)+1;
-                    if(rickAbility>=70){
+                    int rickAbility = rand.nextInt(100)+1;
+                    if(rickAbility<=70){
                         inteligenciaGot = inteligenciaGot*2;
+                        inter.updateAbilityGot("Rick boost");
                     } 
                 }
                 if(personajeVelma.getAbility() == 2){
-                    int rickAbility = rand.nextInt(50)+1;
-                    if(rickAbility>=70){
+                    int rickAbility = rand.nextInt(100)+1;
+                    if(rickAbility<=70){
                         inteligenciaVelma = inteligenciaVelma*2;
+                        inter.updateAbilityVelma("Rick boost");
                     }
                 }
                 inter.updateCharStat(inteligenciaGot, inteligenciaVelma);
@@ -263,15 +277,17 @@ public class InteligenciaArtificial {
                 int armaVelma = personajeVelma.getArmas();
                 int armaGot = personajeGot.getArmas();
                 if(personajeGot.getAbility() == 2){//Abilidad de Rick, si se activa crea un algo para duplicar su estadistica
-                    int rickAbility = rand.nextInt(50)+1;
-                    if(rickAbility>=70){
+                    int rickAbility = rand.nextInt(100)+1;
+                    if(rickAbility<=70){
                         armaGot = armaGot*2;
+                        inter.updateAbilityGot("Rick boost");
                     } 
                 }
                 if(personajeVelma.getAbility() == 2){
-                    int rickAbility = rand.nextInt(50)+1;
-                    if(rickAbility>=70){
+                    int rickAbility = rand.nextInt(100)+1;
+                    if(rickAbility<=70){
                         armaVelma = armaVelma*2;
+                        inter.updateAbilityVelma("Rick boost");
                     }
                 }
                 inter.updateCharStat(armaGot, armaVelma);
@@ -290,15 +306,17 @@ public class InteligenciaArtificial {
                 int velocidadVelma = personajeVelma.getVelocidad();
                 int velocidadGot = personajeGot.getVelocidad();
                 if(personajeGot.getAbility() == 2){//Abilidad de Rick, si se activa crea un algo para duplicar su estadistica
-                    int rickAbility = rand.nextInt(50)+1;
-                    if(rickAbility>=70){
+                    int rickAbility = rand.nextInt(100)+1;
+                    if(rickAbility<=70){
                         velocidadGot = velocidadGot*2;
+                        inter.updateAbilityGot("Rick boost");
                     } 
                 }
                 if(personajeVelma.getAbility() == 2){
-                    int rickAbility = rand.nextInt(50)+1;
-                    if(rickAbility>=70){
+                    int rickAbility = rand.nextInt(100)+1;
+                    if(rickAbility<=70){
                         velocidadVelma = velocidadVelma*2;
+                        inter.updateAbilityVelma("Rick boost");
                     }
                 }
                 inter.updateCharStat(velocidadGot, velocidadVelma);
@@ -317,15 +335,17 @@ public class InteligenciaArtificial {
                 int resistenciaVelma = personajeVelma.getResistencia();
                 int resistenciaGot = personajeGot.getResistencia();
                 if(personajeGot.getAbility() == 2){//Abilidad de Rick, si se activa crea un algo para duplicar su estadistica
-                    int rickAbility = rand.nextInt(50)+1;
-                    if(rickAbility>=70){
+                    int rickAbility = rand.nextInt(100)+1;
+                    if(rickAbility<=70){
                         resistenciaGot = resistenciaGot*2;
+                        inter.updateAbilityGot("Rick boost");
                     } 
                 }
                 if(personajeVelma.getAbility() == 2){
-                    int rickAbility = rand.nextInt(50)+1;
-                    if(rickAbility>=70){
+                    int rickAbility = rand.nextInt(100)+1;
+                    if(rickAbility<=70){
                         resistenciaVelma = resistenciaVelma*2;
+                        inter.updateAbilityVelma("Rick boost");
                     }
                 }
                 inter.updateCharStat(resistenciaGot, resistenciaVelma);
