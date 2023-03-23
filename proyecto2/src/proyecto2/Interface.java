@@ -15,6 +15,8 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
+        this.winnerGot.setVisible(false);
+        this.winnerVelma.setVisible(false);
     }
     
     public void updateQueues(String[] strings){
@@ -28,8 +30,50 @@ public class Interface extends javax.swing.JFrame {
         this.colaBoostVelma.setText(strings[7]);
     }
     
-    public void updateCharacters(String[] characterG, String[] characterV){
-
+    public void updateCharacters(String characterG, String characterV){
+        this.perGOT.setText(characterG);
+        this.perVelma.setText(characterV);
+    }
+    public void winnerVisibleGot(){
+        this.winnerGot.setVisible(true);
+        this.winnerVelma.setVisible(false);
+    }
+    public void winnerVisibleVelma(){
+        this.winnerGot.setVisible(false);
+        this.winnerVelma.setVisible(true);
+    }
+    public void resetWinner(){
+        this.winnerGot.setVisible(false);
+        this.winnerVelma.setVisible(false);
+    }
+    public void updateId(int got, int velma){
+        this.GotId.setText(String.valueOf(got));
+        this.VelmaId.setText(String.valueOf(velma));
+    }
+    public void updateCharStat(int statgot, int statvelma){
+        this.GotStat.setText(String.valueOf(statgot));
+        this.VelmaStat.setText(String.valueOf(statvelma));
+    }
+    public void updateStats(int stat){
+        switch (stat) {
+            case 1:
+                this.stat.setText("Fuerza");
+                break;
+            case 2:
+                this.stat.setText("Inteligencia");
+                break;
+            case 3:
+                this.stat.setText("Armas");
+                break;
+            case 4:
+                this.stat.setText("Velocidad");
+                break;
+            case 5:
+                this.stat.setText("Resistencia");
+            default:
+                this.stat.setText("----------");
+                break;
+        }
     }
 
     /**
@@ -58,8 +102,19 @@ public class Interface extends javax.swing.JFrame {
         cola2Velma = new javax.swing.JLabel();
         cola3Velma = new javax.swing.JLabel();
         fightPanel = new javax.swing.JPanel();
-        imgVelma = new javax.swing.JLabel();
-        imgGOT = new javax.swing.JLabel();
+        perVelma = new javax.swing.JLabel();
+        perGOT = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        VelmaStat = new javax.swing.JLabel();
+        GotStat = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        stat = new javax.swing.JLabel();
+        winnerGot = new javax.swing.JLabel();
+        winnerVelma = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        GotId = new javax.swing.JLabel();
+        VelmaId = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -138,13 +193,46 @@ public class Interface extends javax.swing.JFrame {
         fightPanel.setBorder(new javax.swing.border.MatteBorder(null));
         fightPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        imgVelma.setBackground(new java.awt.Color(255, 255, 102));
-        imgVelma.setOpaque(true);
-        fightPanel.add(imgVelma, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 100, 110));
+        perVelma.setBackground(new java.awt.Color(255, 255, 102));
+        perVelma.setOpaque(true);
+        fightPanel.add(perVelma, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 100, 110));
 
-        imgGOT.setBackground(new java.awt.Color(255, 255, 102));
-        imgGOT.setOpaque(true);
-        fightPanel.add(imgGOT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, 110));
+        perGOT.setBackground(new java.awt.Color(255, 255, 102));
+        perGOT.setOpaque(true);
+        fightPanel.add(perGOT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, 110));
+
+        jLabel4.setText("Fight Stat");
+        fightPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
+
+        VelmaStat.setText("-");
+        fightPanel.add(VelmaStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 20, -1));
+
+        GotStat.setText("-");
+        fightPanel.add(GotStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 20, -1));
+
+        jLabel6.setText("vs");
+        fightPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
+
+        stat.setText("-------------------------");
+        fightPanel.add(stat, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 150, -1));
+
+        winnerGot.setText("winner");
+        fightPanel.add(winnerGot, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
+
+        winnerVelma.setText("winner");
+        fightPanel.add(winnerVelma, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, -1, -1));
+
+        jLabel11.setText("id");
+        fightPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+
+        GotId.setText("0");
+        fightPanel.add(GotId, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 70, -1));
+
+        VelmaId.setText("0");
+        fightPanel.add(VelmaId, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 70, -1));
+
+        jLabel12.setText("id");
+        fightPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, -1));
 
         jPanel1.add(fightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 640, 160));
 
@@ -192,6 +280,10 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel GotId;
+    private javax.swing.JLabel GotStat;
+    private javax.swing.JLabel VelmaId;
+    private javax.swing.JLabel VelmaStat;
     private javax.swing.JLabel cola1GOT;
     private javax.swing.JLabel cola1Velma;
     private javax.swing.JLabel cola2GOT;
@@ -201,16 +293,23 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel cola3Velma;
     private javax.swing.JLabel colaBoostVelma;
     private javax.swing.JPanel fightPanel;
-    private javax.swing.JLabel imgGOT;
-    private javax.swing.JLabel imgVelma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel perGOT;
+    private javax.swing.JLabel perVelma;
+    private javax.swing.JLabel stat;
+    private javax.swing.JLabel winnerGot;
+    private javax.swing.JLabel winnerVelma;
     // End of variables declaration//GEN-END:variables
 }
