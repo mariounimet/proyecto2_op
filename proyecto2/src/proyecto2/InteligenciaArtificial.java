@@ -4,6 +4,7 @@
  */
 package proyecto2;
 
+
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,8 +25,9 @@ public class InteligenciaArtificial {
     
     private Episode epGot;
     private EpisodeoVelma epVelma;
-    
+    String[] arg;
     private Interface inter = new Interface();
+    private EscribirArchivo es = new EscribirArchivo();
     
     public InteligenciaArtificial(){
         protagonistas[0] = new Personaje("Morty", 3, 3, 4, 5, 9, 1);
@@ -49,7 +51,7 @@ public class InteligenciaArtificial {
         String[] colas = {
             cg[0],cg[1],cg[2],cg[3],cv[0],cv[1],cv[2],cv[3],
         };
-
+        
         inter.updateQueues(colas);
         
     }
@@ -101,9 +103,11 @@ public class InteligenciaArtificial {
                     break;
                 case 2:
                     lanzadosVelma += 1;
+                    this.es.Escribir(epVelma, null);
                     break;
                 default:
                     lanzadosGot += 1;
+                    this.es.Escribir(null, epGot);
                     break;
             }
             System.out.print(lanzadosGot+"-");
