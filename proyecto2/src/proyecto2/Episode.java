@@ -11,15 +11,15 @@ package proyecto2;
 public class Episode {
     private int id;
     private int duration;
-    private int priority;
+    private int calidad;
     private int waiting;
     private Episode next;
     private Episode previus;
     
-    public Episode(int id, int duration, int priority){
+    public Episode(int id, int duration, int calidad){
         this.id = id;
         this.duration = duration;
-        this.priority = priority;
+        this.calidad = calidad;
         this.waiting = 0;
         this.next = null;
         this.previus = null;
@@ -30,7 +30,6 @@ public class Episode {
     }
     
     public void promote(){
-        this.priority -= 1;
         this.waiting = 0;
     }
     
@@ -38,12 +37,16 @@ public class Episode {
         return this.id;
     }
     
-    public int getPriority(){
-        return this.priority;
+    public int getCalidad(){
+        return this.calidad;
     }
     
     public int getWaiting(){
         return this.waiting;
+    }
+    
+    public int getDuration(){
+        return this.duration;
     }
     
     public Episode getNext(){

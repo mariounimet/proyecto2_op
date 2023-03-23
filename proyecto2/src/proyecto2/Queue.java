@@ -28,6 +28,7 @@ public class Queue {
         }else{
             this.last.setPrevius(ep);
             ep.setNext(this.last);
+            ep.setPrevius(null);
             this.last = ep;
         }
         this.size += 1;
@@ -44,6 +45,8 @@ public class Queue {
         }
         
         this.size -= 1;
+        ep.setPrevius(null);
+        ep.setNext(null);
         return ep;
     }
     
@@ -61,6 +64,16 @@ public class Queue {
     
     public int getPriority(){
         return this.priority;
+    }
+    
+    public String getItems(){
+        Episode aux = this.first;
+        String st = "";
+        while(aux != null){
+            st += (String.valueOf(aux.getId())+"-");
+            aux = aux.getPrevius();
+        }
+        return st;
     }
     
     public void printAll(){

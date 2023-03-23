@@ -16,7 +16,7 @@ public class AdministradorVelma {
     private int epNum = 0;
     private int contadorNuevo = 0;
     
-    private void newEp(){
+    public void newEp(){
         this.epNum++;
         int numeroEp = this.epNum;
         EpisodeoVelma ep = new EpisodeoVelma(numeroEp);
@@ -40,18 +40,22 @@ public class AdministradorVelma {
             aux = prio3.Extraer();
         }
         promoteEpisodes();
+        
         this.contadorNuevo++;
+        int probabilidad = rand.nextInt(100)+1;
+        if (probabilidad <= 40){
+            sacarRefuerzo();
+        }
+        
         if (this.contadorNuevo == 2){
-            newEp();
-            int probabilidad = rand.nextInt(100)+1;
             if(probabilidad <= 70){
                 this.contadorNuevo = 0;
-            }
-            if (probabilidad <= 40){
-                sacarRefuerzo();
+                newEp();
+            }else{
+                this.contadorNuevo = 0;
             }
         }
-        return aux;
+            return aux;
     }
     private void sacarRefuerzo(){
         EpisodeoVelma ep = refuerzo.Extraer();
@@ -60,7 +64,7 @@ public class AdministradorVelma {
             prio1.Insertar(ep);
         }
     }
-    private void Reforzar(EpisodeoVelma ep){
+    public void Reforzar(EpisodeoVelma ep){
         refuerzo.Insertar(ep);
     }
     private void promoteEpisodes(){
@@ -96,5 +100,15 @@ public class AdministradorVelma {
             aux = aux.getSiguiente();
             contador++;
         }
+    }
+    public String[] queues(){
+        String[] st = new String[4];
+        
+        st[0] = prio1.getItems();
+        st[1] = prio2.getItems();
+        st[2] = prio3.getItems();
+        st[3] = refuerzo.getItems();
+        
+        return st;
     }
 }
